@@ -5,8 +5,6 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
-import com.teamdev.jxbrowser.chromium.swing.BrowserView;
-import io.loli.browserfx.jxbrowser.JxBrowserView;
 
 
 public class BrowserWindowFactory implements ToolWindowFactory {
