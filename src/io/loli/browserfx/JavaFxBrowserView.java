@@ -1,22 +1,13 @@
 package io.loli.browserfx;
 
-import com.sun.javafx.application.PlatformImpl;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.Dimension;
+import javax.swing.JComponent;
 import java.util.function.Consumer;
 
 public class JavaFxBrowserView implements BrowserView {
