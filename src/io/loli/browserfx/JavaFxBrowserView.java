@@ -74,6 +74,7 @@ public class JavaFxBrowserView implements BrowserView {
     @Override
     public void reload() {
         jfxPanel = new JFXPanel();
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             browser = new WebView();
             webEngine = browser.getEngine();
@@ -83,6 +84,7 @@ public class JavaFxBrowserView implements BrowserView {
 
     @Override
     public void urlChangeCallback(Consumer<String> consumer) {
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
                 consumer.accept(webEngine.getLocation());
@@ -92,6 +94,7 @@ public class JavaFxBrowserView implements BrowserView {
 
     @Override
     public JComponent getNode() {
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             BorderPane borderPane = new BorderPane();
             borderPane.setCenter(browser);
