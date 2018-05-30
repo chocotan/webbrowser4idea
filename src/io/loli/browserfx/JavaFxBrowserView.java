@@ -18,6 +18,8 @@ import java.util.function.Consumer;
 
 public class JavaFxBrowserView implements BrowserView {
 
+    private static final String userAgent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0";
+
     private WebView browser;
     private WebEngine webEngine;
     private String url;
@@ -75,6 +77,7 @@ public class JavaFxBrowserView implements BrowserView {
         Platform.runLater(() -> {
             browser = new WebView();
             webEngine = browser.getEngine();
+            webEngine.setUserAgent(userAgent);
         });
     }
 
