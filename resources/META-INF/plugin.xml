@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>io.loli.browserfx</id>
   <name>Embedded Web Browser for IDEA</name>
-  <version>1.1.4</version>
+  <version>1.1.5</version>
   <vendor email="loli@linux.com" url="http://github.com/chocotan/webbrowser4idea">chocotan</vendor>
 
   <description><![CDATA[
@@ -9,7 +9,8 @@
     ]]></description>
 
   <change-notes><![CDATA[
-Remove javafx
+      1. Ignore untrusted ssl certificates
+
     ]]>
   </change-notes>
 
