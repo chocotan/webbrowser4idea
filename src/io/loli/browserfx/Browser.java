@@ -126,6 +126,8 @@ public class Browser extends JPanel {
             s.weightx = 1;
             s.weighty = 1;
             layout.setConstraints(webPanel, s);
+            validate();
+            repaint();
         });
     }
 }
