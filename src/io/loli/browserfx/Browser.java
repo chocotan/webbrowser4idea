@@ -25,61 +25,6 @@ public class Browser extends JPanel {
 
     }
 
-//
-//    public JComponent getControllers() {
-//        JFXPanel panel = new JFXPanel();
-//        Platform.runLater(() -> {
-//            BorderPane hbox = new BorderPane();
-//            hbox.setPadding(new javafx.geometry.Insets(5.0, 5.0, 5.0, 5.0));
-////            hbox.setSpacing(10);
-//            hbox.setStyle("-fx-background-color: #336699;");
-//            urlField = new TextField();
-//            urlField.setPrefSize(2000, 20);
-//            Button buttonPrev = new Button("<");
-//            Button buttonNext = new Button(">");
-//            Button buttonReload = new Button("≈");
-//            urlField.setOnAction(event -> {
-//                String trim = urlField.getText().trim();
-//                if (!trim.startsWith("http")) {
-//                    trim = "http://" + trim;
-//                }
-//                browserView.load(trim);
-//            });
-//            buttonPrev.setOnAction(event -> {
-//                if (history != null && history.getLeftChild() != null) {
-//                    history = history.getLeftChild();
-//                    if (history.getData() != null) {
-//                        browserView.load(history.getData().trim());
-//                        inHistory.set(true);
-//                    }
-//                }
-//            });
-//
-//            buttonNext.setOnAction(event -> {
-//                if (history != null && history.getRightChild() != null) {
-//                    history = history.getRightChild();
-//                    if (history.getData() != null) {
-//                        browserView.load(history.getData().trim());
-//                        inHistory.set(true);
-//                    }
-//                }
-//            });
-//
-//            buttonReload.setOnAction(event -> {
-//                initWebView();
-//            });
-//
-//            buttonPrev.setPrefSize(40, 20);
-//            buttonNext.setPrefSize(40, 20);
-//            hbox.getChildren().addAll(buttonPrev, buttonNext, urlField, buttonReload);
-//            Scene scene = new Scene(hbox);
-//            panel.setScene(scene);
-//        });
-//
-//        return panel;
-//
-//    }
-
     public JPanel getControllers() {
         JPanel controllers = new JPanel();
         GridBagLayout layout = new GridBagLayout();
@@ -181,6 +126,8 @@ public class Browser extends JPanel {
             s.weightx = 1;
             s.weighty = 1;
             layout.setConstraints(webPanel, s);
+            validate();
+            repaint();
         });
     }
 }
