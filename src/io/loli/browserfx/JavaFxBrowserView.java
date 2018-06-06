@@ -18,6 +18,8 @@ import java.util.function.Consumer;
 
 public class JavaFxBrowserView implements BrowserView {
 
+    private static final String userAgent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0";
+
     private WebView browser;
     private WebEngine webEngine;
     private String url;
@@ -72,14 +74,17 @@ public class JavaFxBrowserView implements BrowserView {
     @Override
     public void reload() {
         jfxPanel = new JFXPanel();
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             browser = new WebView();
             webEngine = browser.getEngine();
+            webEngine.setUserAgent(userAgent);
         });
     }
 
     @Override
     public void urlChangeCallback(Consumer<String> consumer) {
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
                 consumer.accept(webEngine.getLocation());
@@ -89,6 +94,7 @@ public class JavaFxBrowserView implements BrowserView {
 
     @Override
     public JComponent getNode() {
+        Platform.setImplicitExit(false);
         Platform.runLater(() -> {
             BorderPane borderPane = new BorderPane();
             borderPane.setCenter(browser);
